@@ -1,7 +1,7 @@
-let hourglassSum = (arr) => {
+ const hourglassSum = (arr) => {
   let sum;
 
-  let relativePositions = [
+  const relativePositions = [
     [-1, -1],
     [-1,  0],
     [-1,  1],
@@ -11,7 +11,7 @@ let hourglassSum = (arr) => {
     [1,   1]
   ];
 
-  let validIndexes = (x, y) => {
+  const validIndexes = (x, y) => {
     if (x < 1 || x >= arr.length - 1)
       return false;
     if (y < 1 || y >= arr.length - 1)
