@@ -41,7 +41,7 @@ const minWins = parseInt(args[1] || 0, 10);
 (async (year, minWins) => {
   try {
     let totalData = [];
-    let firstPage = 1; //First page is always 1
+    const firstPage = 1; //First page is always 1
 
     // Get the first page and then the total number of pages
     // we then make a call for each page until total_pages
@@ -53,7 +53,7 @@ const minWins = parseInt(args[1] || 0, 10);
     totalData = [...data]; //data is immutable 
 
     // Collect the rest of the results from the rest of the pages
-    let rest = arrayFromRange(firstPage + 1, total_pages)
+    const rest = arrayFromRange(firstPage + 1, total_pages)
       .reduce(async (a, cP) => {
         return [
           ...await a,
@@ -67,9 +67,9 @@ const minWins = parseInt(args[1] || 0, 10);
     ];
 
     // Collect number of matches 
-    let result = getTeamMatches(totalData);
+    const result = getTeamMatches(totalData);
 
-    let output = Object.keys(result)
+    const output = Object.keys(result)
       .sort((a,b) => result[b] - result[a]) // Sort in descending order
       .filter((v) => result[v] >= minWins) // Only keep teams with min wins;
 
